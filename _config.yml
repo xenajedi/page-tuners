@@ -1,0 +1,31 @@
+title: "Page Tuners"
+description: "A literacy adventure for kids and families — official pitch site."
+url: "https://<your-username>.github.io"
+baseurl: "/page-tuners"
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Brand + delivery flags
+use_cloudinary: true
+cloudinary:
+  cloud_name: "djjpiz1bh"
+  base_folder: "page-tuners"
+  named_transforms:
+    hero: "t_hero"
+    card: "t_card"
+    thumb: "t_thumb"
+
+# Optional: simple nav labels (IDs must match section anchors)
+nav:
+  - { id: "story",        label: "Story" }
+  - { id: "characters",   label: "Characters" }
+  - { id: "comps-tone",   label: "Comps & Tone" }
+  - { id: "episodes",     label: "Episodes" }
+  - { id: "scripts",      label: "Scripts" }
+  - { id: "downloads",    label: "Downloads" }
+  - { id: "contact",      label: "Contact Us" }
