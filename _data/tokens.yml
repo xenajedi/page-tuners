@@ -1,0 +1,19 @@
+# Locked style tokens (for editors' reference)
+colors:
+  sidebar_top:   "#738299"
+  sidebar_bottom:"#398AA1"
+  parchment_l:   "#FAF1D4"
+  parchment_d:   "#EEE1BC"
+  text_dark:     "#1E1B16"
+  gold:          "#FBD653"
+  orange:        "#F26B0A"
+  peach:         "#F2B45A"
+  seafoam:       "#A5D8CC"
+  deep_green:    "#598079"
+  lavender:      "#8F6AF5"   # optional accent
+type:
+  headings: "Baloo 2"
+  body: "Nunito Sans"
+shape:
+  radius_lg: 24
+  border_dash: "14,10"

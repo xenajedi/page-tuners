@@ -1,0 +1,26 @@
+<section id="episodes" class="section">
+  <h1 class="section__title">Episodes</h1>
+  <nav class="subnav" aria-label="Episode filters">
+    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="featured">Featured</button>
+    <button class="chip" data-filter="classic">Classics</button>
+    <button class="chip" data-filter="development">In Development</button>
+  </nav>
+
+  <div class="cards" id="episodes-grid">
+    {% assign eps = site.episodes | sort: "priority" %}
+    {% for e in eps %}
+      {% assign tags = e.tags | default: "" | split: ";" %}
+      <article class="card episode" data-tags="{{ e.tags | escape }}" id="episode-{{ e.slug }}">
+        {% include img.html id=e.cdn_id alt=e.thumb_alt transform="card" local="/assets/img/placeholder-episode.png" %}
+        <h3 class="card__title">{{ e.title }}</h3>
+        <p class="muted">{{ e.ip_source }}</p>
+        <p>{{ e.logline }}</p>
+        <div class="badges">
+          <span class="badge">{{ e.status }}</span>
+          {% if e.featured == "yes" %}<span class="badge badge--gold">featured</span>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

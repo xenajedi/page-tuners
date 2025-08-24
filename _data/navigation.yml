@@ -1,0 +1,9 @@
+# Sidebar order + labels. Characters is a disclosure; Episodes stays single link.
+items:
+  - { id: "story", label: "Story" }
+  - { id: "characters", label: "Characters", disclosure: true }
+  - { id: "comps-tone", label: "Comps & Tone" }
+  - { id: "episodes", label: "Episodes" }
+  - { id: "scripts", label: "Scripts" }
+  - { id: "downloads", label: "Downloads" }
+  - { id: "contact", label: "Contact Us" }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60">
+  <defs>
+    <style>
+      .a{fill:#1E1B16;font-family:'Baloo 2', system-ui, sans-serif;font-weight:700;font-size:28px}
+      .b{fill:none;stroke:#F26B0A;stroke-width:2;stroke-dasharray:14 10}
+    </style>
+  </defs>
+  <rect x="1" y="1" width="238" height="58" class="b" rx="12" ry="12"/>
+  <text x="20" y="38" class="a">Page Tuners</text>
+</svg>

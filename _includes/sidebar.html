@@ -1,0 +1,27 @@
+{% assign nav = site.data.navigation.items | default: site.nav %}
+<nav class="nav">
+  <ul class="nav__list">
+    {% for item in nav %}
+      {% if item.id == 'characters' and item.disclosure %}
+        <li class="nav__item nav__item--disclosure">
+          <button class="nav__button" aria-expanded="false" aria-controls="nav-characters">
+            <span class="nav__caret" aria-hidden="true">►</span>
+            <span class="nav__label">{{ item.label }}</span>
+          </button>
+          <ul id="nav-characters" class="nav__sublist" hidden>
+            {% assign chars = site.characters | sort: 'priority' %}
+            {% for c in chars %}
+              <li class="nav__subitem">
+                <a class="nav__sublink" href="#characters-{{ c.slug | escape }}">{{ c.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li class="nav__item">
+          <a class="nav__link" href="#{{ item.id }}">{{ item.label }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

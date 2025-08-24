@@ -1,0 +1,38 @@
+{%- assign use_cdn = site.use_cloudinary | default: false -%}
+{%- assign cloud = site.cloudinary -%}
+{%- assign id = include.id -%}
+{%- assign alt = include.alt | default: '' -%}
+{%- assign transform = include.transform | default: 'card' -%}
+{%- assign local = include.local | default: '/assets/img/placeholder.png' -%}
+{%- assign sizes = include.sizes | default: '(min-width: 1024px) 600px, 90vw' -%}
+
+{%- if use_cdn and id and id != '' -%}
+  {%- comment -%}
+    Expect Cloudinary named transforms in _config.yml:
+      cloudinary.named_transforms.card  -> "t_card"
+      cloudinary.named_transforms.hero  -> "t_hero"
+      cloudinary.named_transforms.thumb -> "t_thumb"
+  {%- endcomment -%}
+  {%- assign t_key = 't_' | append: transform -%}
+  {%- assign t_value = cloud.named_transforms[transform] | default: t_key -%}
+  <img
+    src="https://res.cloudinary.com/{{ cloud.cloud_name }}/image/upload/{{ t_value }}/{{ id }}"
+    alt="{{ alt | escape }}"
+    loading="lazy"
+    decoding="async"
+    sizes="{{ sizes }}"
+    class="{{ include.class }}"
+  >
+  <noscript>
+    <img src="https://res.cloudinary.com/{{ cloud.cloud_name }}/image/upload/{{ t_value }}/{{ id }}" alt="{{ alt | escape }}">
+  </noscript>
+{%- else -%}
+  <img
+    src="{{ local | relative_url }}"
+    alt="{{ alt | escape }}"
+    loading="lazy"
+    decoding="async"
+    sizes="{{ sizes }}"
+    class="{{ include.class }}"
+  >
+{%- endif -%}
