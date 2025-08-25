@@ -1,6 +1,6 @@
 title: "Page Tuners"
 description: "A literacy adventure for kids and families — official pitch site."
-url: "https://<your-username>.github.io"
+url: "https://xenajedi.github.io"
 baseurl: "/page-tuners"
 markdown: kramdown
 plugins:
@@ -19,6 +19,8 @@ cloudinary:
     hero: "t_hero"
     card: "t_card"
     thumb: "t_thumb"
+
+theme: null
 
 collections:
   characters:
