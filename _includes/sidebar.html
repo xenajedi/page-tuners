@@ -1,4 +1,5 @@
 {% assign nav = site.data.navigation.items | default: site.nav %}
+
 <nav class="nav">
   <ul class="nav__list">
     {% for item in nav %}
@@ -8,8 +9,12 @@
             <span class="nav__caret" aria-hidden="true">►</span>
             <span class="nav__label">{{ item.label }}</span>
           </button>
+
+          {% comment %} try characters → fallback to collection.docs → [] {% endcomment %}
+          {% assign chars = site.characters | default: site.collections.characters.docs | default: [] %}
+          {% assign chars = chars | sort: 'priority' %}
+
           <ul id="nav-characters" class="nav__sublist" hidden>
-            {% assign chars = site.characters | sort: 'priority' %}
             {% for c in chars %}
               <li class="nav__subitem">
                 <a class="nav__sublink" href="#characters-{{ c.slug | escape }}">{{ c.name }}</a>
