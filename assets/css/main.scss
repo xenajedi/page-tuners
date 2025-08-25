@@ -1,0 +1,106 @@
+---
+---
+/* Root tokens */
+:root{
+  --sidebar-top:   #738299;
+  --sidebar-bottom:#398AA1;
+  --parchment-l:   #FAF1D4;
+  --parchment-d:   #EEE1BC;
+  --text-dark:     #1E1B16;
+  --gold:          #FBD653;
+  --orange:        #F26B0A;
+  --peach:         #F2B45A;
+  --seafoam:       #A5D8CC;
+  --deep-green:    #598079;
+  --lavender:      #8F6AF5; /* optional */
+  --radius-lg:     24px;
+  --focus:         #FBD653;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text-dark);
+  background: linear-gradient(180deg, var(--parchment-l), var(--parchment-d));
+  background-attachment: fixed;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:"Baloo 2", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.2;
+  margin:0 0 .5rem 0;
+}
+.skip-link{
+  position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+.skip-link:focus{position:fixed;left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:.5rem 1rem;border:2px solid var(--focus);z-index:1000}
+
+.site{display:grid;grid-template-columns: 300px 1fr;min-height:100vh}
+.site-sidebar{
+  background: linear-gradient(180deg, var(--sidebar-top), var(--sidebar-bottom));
+  color:white;
+  padding:1rem;
+  position:sticky;top:0;height:100vh;overflow:auto;
+  box-shadow: inset -1px 0 0 rgba(0,0,0,.08);
+}
+.site-content{padding:2rem 2.5rem}
+.site-header .brand{
+  display:flex;align-items:center;gap:.75rem;text-decoration:none;color:white;
+  padding:.5rem;border-radius:12px;
+}
+.brand__logo{width:48px;height:auto;display:block}
+.brand__name{font-family:"Baloo 2";font-size:1.4rem}
+
+.nav{margin-top:1rem}
+.nav__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}
+.nav__link,.nav__button{
+  display:flex;align-items:center;gap:.5rem;width:100%;text-decoration:none;
+  color:white;background:transparent;border:none;padding:.5rem .75rem;border-radius:12px;cursor:pointer;
+  text-align:left;font-size:1rem;
+}
+.nav__link:hover,.nav__button:hover{background: rgba(255,255,255,.08)}
+.nav__link.is-active{background: rgba(255,255,255,.16)}
+.nav__caret{width:1rem;display:inline-block}
+.nav__sublist{list-style:none;margin:.25rem 0 .5rem 1.6rem;padding:0;display:flex;flex-direction:column;gap:.15rem}
+.nav__sublink{color:white;text-decoration:none;padding:.25rem .5rem;border-radius:8px;display:inline-block}
+.nav__sublink:hover{background: rgba(255,255,255,.08)}
+
+.section{scroll-margin-top: 1.5rem; margin-bottom:3rem}
+.section__title{font-size:2rem;margin-bottom:1rem}
+
+.cards{display:grid;grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:1rem}
+.card{
+  background:#fff;border-radius:var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  padding:1rem;border:1px solid rgba(0,0,0,.06);
+}
+.card img{width:100%;height:auto;border-radius:18px;margin:0 0 .5rem 0;display:block}
+.card--dashed{border:2px dashed var(--orange)}
+.card__title{margin:.5rem 0 .25rem 0;font-size:1.25rem}
+
+.chips{list-style:none;margin:.25rem 0 .5rem 0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{display:inline-block;background:var(--seafoam);color:#00332b;padding:.25rem .5rem;border-radius:999px;border:1px solid rgba(0,0,0,.08)}
+.badge{display:inline-block;background:var(--deep-green);color:white;padding:.2rem .5rem;border-radius:999px;font-size:.8rem;margin-right:.25rem}
+.badge--gold{background:var(--gold);color:#553a00}
+.muted{opacity:.8;font-size:.95rem}
+
+.list{padding-left:1.2rem}
+.list--bullets{list-style: disc;}
+
+.subnav{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0 1rem 0}
+.subnav .chip{cursor:pointer;background:var(--peach);}
+.subnav .chip[aria-pressed="true"]{background:var(--gold)}
+
+/* Focus styles */
+:where(a, button, [role="button"], .nav__sublink):focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Mobile */
+@media (max-width: 980px){
+  .site{grid-template-columns: 1fr}
+  .site-sidebar{position:relative;height:auto}
+}
