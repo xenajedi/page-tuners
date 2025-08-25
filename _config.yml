@@ -20,6 +20,12 @@ cloudinary:
     card: "t_card"
     thumb: "t_thumb"
 
+collections:
+  characters:
+    output: false
+  episodes:
+    output: false
+
 # Optional: simple nav labels (IDs must match section anchors)
 nav:
   - { id: "story",        label: "Story" }
